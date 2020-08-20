@@ -33,8 +33,7 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="data/LivraisonGuadeloupe_2.js"></script>
-        <script src="data/QuartiersFibre_Antilles_3.js"></script>
-        <script src="data/COMMUNES_971_WGS84_4.js"></script>
+        <script src="data/Contourcommune_3.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -145,65 +144,7 @@
         });
         bounds_group.addLayer(layer_LivraisonGuadeloupe_2);
         map.addLayer(layer_LivraisonGuadeloupe_2);
-        function pop_QuartiersFibre_Antilles_3(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['NomCommune'] !== null ? autolinker.link(feature.properties['NomCommune'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">NomQuartie</th>\
-                        <td>' + (feature.properties['NomQuartie'] !== null ? autolinker.link(feature.properties['NomQuartie'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Color'] !== null ? autolinker.link(feature.properties['Color'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_QuartiersFibre_Antilles_3_0() {
-            return {
-                pane: 'pane_QuartiersFibre_Antilles_3',
-                opacity: 1,
-                color: 'rgba(255,255,255,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1, 
-                fillOpacity: 0,
-                interactive: true,
-            }
-        }
-        map.createPane('pane_QuartiersFibre_Antilles_3');
-        map.getPane('pane_QuartiersFibre_Antilles_3').style.zIndex = 403;
-        map.getPane('pane_QuartiersFibre_Antilles_3').style['mix-blend-mode'] = 'normal';
-        var layer_QuartiersFibre_Antilles_3 = new L.geoJson(json_QuartiersFibre_Antilles_3, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_QuartiersFibre_Antilles_3',
-            layerName: 'layer_QuartiersFibre_Antilles_3',
-            pane: 'pane_QuartiersFibre_Antilles_3',
-            onEachFeature: pop_QuartiersFibre_Antilles_3,
-            style: style_QuartiersFibre_Antilles_3_0,
-        });
-        bounds_group.addLayer(layer_QuartiersFibre_Antilles_3);
-        map.addLayer(layer_QuartiersFibre_Antilles_3);
-        function pop_COMMUNES_971_WGS84_4(feature, layer) {
+        function pop_Contourcommune_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -227,9 +168,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_COMMUNES_971_WGS84_4_0() {
+        function style_Contourcommune_3_0() {
             return {
-                pane: 'pane_COMMUNES_971_WGS84_4',
+                pane: 'pane_Contourcommune_3',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -239,23 +180,23 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(114,155,111,0.0)',
-                interactive: true,
+                interactive: false,
             }
         }
-        map.createPane('pane_COMMUNES_971_WGS84_4');
-        map.getPane('pane_COMMUNES_971_WGS84_4').style.zIndex = 404;
-        map.getPane('pane_COMMUNES_971_WGS84_4').style['mix-blend-mode'] = 'normal';
-        var layer_COMMUNES_971_WGS84_4 = new L.geoJson(json_COMMUNES_971_WGS84_4, {
+        map.createPane('pane_Contourcommune_3');
+        map.getPane('pane_Contourcommune_3').style.zIndex = 403;
+        map.getPane('pane_Contourcommune_3').style['mix-blend-mode'] = 'normal';
+        var layer_Contourcommune_3 = new L.geoJson(json_Contourcommune_3, {
             attribution: '',
-            interactive: true,
-            dataVar: 'json_COMMUNES_971_WGS84_4',
-            layerName: 'layer_COMMUNES_971_WGS84_4',
-            pane: 'pane_COMMUNES_971_WGS84_4',
-            onEachFeature: pop_COMMUNES_971_WGS84_4,
-            style: style_COMMUNES_971_WGS84_4_0,
+            interactive: false,
+            dataVar: 'json_Contourcommune_3',
+            layerName: 'layer_Contourcommune_3',
+            pane: 'pane_Contourcommune_3',
+            onEachFeature: pop_Contourcommune_3,
+            style: style_Contourcommune_3_0,
         });
-        bounds_group.addLayer(layer_COMMUNES_971_WGS84_4);
-        map.addLayer(layer_COMMUNES_971_WGS84_4);
+        bounds_group.addLayer(layer_Contourcommune_3);
+        map.addLayer(layer_Contourcommune_3);
             var title = new L.Control();
             title.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
@@ -277,31 +218,8 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/COMMUNES_971_WGS84_4.png" /> COMMUNES_971_WGS84': layer_COMMUNES_971_WGS84_4,'<img src="legend/QuartiersFibre_Antilles_3.png" /> QuartiersFibre_Antilles': layer_QuartiersFibre_Antilles_3,'<img src="legend/LivraisonGuadeloupe_2.png" /> Livraison Guadeloupe': layer_LivraisonGuadeloupe_2,"Google Satellite": layer_GoogleSatellite_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Contourcommune_3.png" /> Contour commune': layer_Contourcommune_3,'<img src="legend/LivraisonGuadeloupe_2.png" /> Livraison Guadeloupe': layer_LivraisonGuadeloupe_2,"Google Satellite": layer_GoogleSatellite_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
         setBounds();
-        var i = 0;
-        layer_QuartiersFibre_Antilles_3.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['NomQuartie'] !== null?String('<div style="color: #000000; font-size: 9pt; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['NomQuartie']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_QuartiersFibre_Antilles_3'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        resetLabels([layer_QuartiersFibre_Antilles_3]);
-        map.on("zoomend", function(){
-            resetLabels([layer_QuartiersFibre_Antilles_3]);
-        });
-        map.on("layeradd", function(){
-            resetLabels([layer_QuartiersFibre_Antilles_3]);
-        });
-        map.on("layerremove", function(){
-            resetLabels([layer_QuartiersFibre_Antilles_3]);
-        });
         </script>
     </body>
 </html>
