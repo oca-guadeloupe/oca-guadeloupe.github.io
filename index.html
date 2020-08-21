@@ -32,8 +32,8 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-        <script src="data/Contourcommune_2.js"></script>
-        <script src="data/PriseFibre_3.js"></script>
+        <script src="data/VillesFibreOrange_2.js"></script>
+        <script src="data/PriseFibreOrange_3.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -42,7 +42,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:17, minZoom:1
-        }).fitBounds([[16.02551926807998,-61.84528467180304],[16.40877445785696,-61.06710118686248]]);
+        }).fitBounds([[16.015503763765874,-61.96185897007132],[16.408593782658105,-61.163122079354345]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -75,7 +75,7 @@
         });
         layer_GoogleSatellite_1;
         map.addLayer(layer_GoogleSatellite_1);
-        function pop_Contourcommune_2(feature, layer) {
+        function pop_VillesFibreOrange_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -99,36 +99,36 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Contourcommune_2_0() {
+        function style_VillesFibreOrange_2_0() {
             return {
-                pane: 'pane_Contourcommune_2',
+                pane: 'pane_VillesFibreOrange_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(202,202,202,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 3.0, 
+                weight: 2.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(114,155,111,0.0)',
-                interactive: false,
+                fillColor: 'rgba(183,72,75,0.0)',
+                interactive: true,
             }
         }
-        map.createPane('pane_Contourcommune_2');
-        map.getPane('pane_Contourcommune_2').style.zIndex = 402;
-        map.getPane('pane_Contourcommune_2').style['mix-blend-mode'] = 'normal';
-        var layer_Contourcommune_2 = new L.geoJson(json_Contourcommune_2, {
+        map.createPane('pane_VillesFibreOrange_2');
+        map.getPane('pane_VillesFibreOrange_2').style.zIndex = 402;
+        map.getPane('pane_VillesFibreOrange_2').style['mix-blend-mode'] = 'normal';
+        var layer_VillesFibreOrange_2 = new L.geoJson(json_VillesFibreOrange_2, {
             attribution: '',
-            interactive: false,
-            dataVar: 'json_Contourcommune_2',
-            layerName: 'layer_Contourcommune_2',
-            pane: 'pane_Contourcommune_2',
-            onEachFeature: pop_Contourcommune_2,
-            style: style_Contourcommune_2_0,
+            interactive: true,
+            dataVar: 'json_VillesFibreOrange_2',
+            layerName: 'layer_VillesFibreOrange_2',
+            pane: 'pane_VillesFibreOrange_2',
+            onEachFeature: pop_VillesFibreOrange_2,
+            style: style_VillesFibreOrange_2_0,
         });
-        bounds_group.addLayer(layer_Contourcommune_2);
-        map.addLayer(layer_Contourcommune_2);
-        function pop_PriseFibre_3(feature, layer) {
+        bounds_group.addLayer(layer_VillesFibreOrange_2);
+        map.addLayer(layer_VillesFibreOrange_2);
+        function pop_PriseFibreOrange_3(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -163,12 +163,12 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_PriseFibre_3_0(feature) {
+        function style_PriseFibreOrange_3_0(feature) {
             switch(String(feature.properties['q2wHide_Anciennete Prise'])) {
                 case 'Prise de la semaine':
                     return {
-                pane: 'pane_PriseFibre_3',
-                radius: 4.0,
+                pane: 'pane_PriseFibreOrange_3',
+                radius: 3.2,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -183,8 +183,8 @@
                     break;
                 case 'Prise éligible':
                     return {
-                pane: 'pane_PriseFibre_3',
-                radius: 4.0,
+                pane: 'pane_PriseFibreOrange_3',
+                radius: 3.2,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -199,7 +199,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_PriseFibre_3',
+                pane: 'pane_PriseFibreOrange_3',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(255,255,255,1.0)',
@@ -215,26 +215,26 @@
                     break;
             }
         }
-        map.createPane('pane_PriseFibre_3');
-        map.getPane('pane_PriseFibre_3').style.zIndex = 403;
-        map.getPane('pane_PriseFibre_3').style['mix-blend-mode'] = 'normal';
-        var layer_PriseFibre_3 = new L.geoJson(json_PriseFibre_3, {
+        map.createPane('pane_PriseFibreOrange_3');
+        map.getPane('pane_PriseFibreOrange_3').style.zIndex = 403;
+        map.getPane('pane_PriseFibreOrange_3').style['mix-blend-mode'] = 'normal';
+        var layer_PriseFibreOrange_3 = new L.geoJson(json_PriseFibreOrange_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PriseFibre_3',
-            layerName: 'layer_PriseFibre_3',
-            pane: 'pane_PriseFibre_3',
-            onEachFeature: pop_PriseFibre_3,
+            dataVar: 'json_PriseFibreOrange_3',
+            layerName: 'layer_PriseFibreOrange_3',
+            pane: 'pane_PriseFibreOrange_3',
+            onEachFeature: pop_PriseFibreOrange_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_PriseFibre_3_0(feature));
+                return L.circleMarker(latlng, style_PriseFibreOrange_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_PriseFibre_3);
-        map.addLayer(layer_PriseFibre_3);
+        bounds_group.addLayer(layer_PriseFibreOrange_3);
+        map.addLayer(layer_PriseFibreOrange_3);
             var title = new L.Control();
             title.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
@@ -256,7 +256,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'Prise Fibre<br /><table><tr><td style="text-align: center;"><img src="legend/PriseFibre_3_Prisedelasemaine0.png" /></td><td>Prise de la semaine</td></tr><tr><td style="text-align: center;"><img src="legend/PriseFibre_3_Priseéligible1.png" /></td><td>Prise éligible</td></tr><tr><td style="text-align: center;"><img src="legend/PriseFibre_3_2.png" /></td><td></td></tr></table>': layer_PriseFibre_3,'<img src="legend/Contourcommune_2.png" /> Contour commune': layer_Contourcommune_2,"Google Satellite": layer_GoogleSatellite_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'Prise Fibre Orange<br /><table><tr><td style="text-align: center;"><img src="legend/PriseFibreOrange_3_Prisedelasemaine0.png" /></td><td>Prise de la semaine</td></tr><tr><td style="text-align: center;"><img src="legend/PriseFibreOrange_3_Priseéligible1.png" /></td><td>Prise éligible</td></tr><tr><td style="text-align: center;"><img src="legend/PriseFibreOrange_3_2.png" /></td><td></td></tr></table>': layer_PriseFibreOrange_3,'<img src="legend/VillesFibreOrange_2.png" /> Villes Fibre Orange': layer_VillesFibreOrange_2,"Google Satellite": layer_GoogleSatellite_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
