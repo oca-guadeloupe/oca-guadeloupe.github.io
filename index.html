@@ -32,8 +32,8 @@
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
-        <script src="data/LivraisonGuadeloupe_2.js"></script>
-        <script src="data/Contourcommune_3.js"></script>
+        <script src="data/Contourcommune_2.js"></script>
+        <script src="data/PriseFibre_3.js"></script>
         <script>
         var highlightLayer;
         function highlightFeature(e) {
@@ -42,7 +42,7 @@
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:17, minZoom:1
-        }).fitBounds([[16.029808232027836,-61.88958258115658],[16.4129106266309,-61.11145024864645]]);
+        }).fitBounds([[16.02551926807998,-61.84528467180304],[16.40877445785696,-61.06710118686248]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -75,76 +75,7 @@
         });
         layer_GoogleSatellite_1;
         map.addLayer(layer_GoogleSatellite_1);
-        function pop_LivraisonGuadeloupe_2(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    if (typeof layer.closePopup == 'function') {
-                        layer.closePopup();
-                    } else {
-                        layer.eachLayer(function(feature){
-                            feature.closePopup()
-                        });
-                    }
-                },
-                mouseover: highlightFeature,
-            });
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['SITE - Numéro de dossier'] !== null ? autolinker.link(feature.properties['SITE - Numéro de dossier'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Commune'] !== null ? autolinker.link(feature.properties['Commune'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Commercialisation</strong><br />' + (feature.properties['Commercialisation'] !== null ? autolinker.link(feature.properties['Commercialisation'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Logement</strong><br />' + (feature.properties['Logement'] !== null ? autolinker.link(feature.properties['Logement'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
-        }
-
-        function style_LivraisonGuadeloupe_2_0() {
-            return {
-                pane: 'pane_LivraisonGuadeloupe_2',
-                radius: 3.2,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,127,0,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_LivraisonGuadeloupe_2');
-        map.getPane('pane_LivraisonGuadeloupe_2').style.zIndex = 402;
-        map.getPane('pane_LivraisonGuadeloupe_2').style['mix-blend-mode'] = 'normal';
-        var layer_LivraisonGuadeloupe_2 = new L.geoJson(json_LivraisonGuadeloupe_2, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_LivraisonGuadeloupe_2',
-            layerName: 'layer_LivraisonGuadeloupe_2',
-            pane: 'pane_LivraisonGuadeloupe_2',
-            onEachFeature: pop_LivraisonGuadeloupe_2,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_LivraisonGuadeloupe_2_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_LivraisonGuadeloupe_2);
-        map.addLayer(layer_LivraisonGuadeloupe_2);
-        function pop_Contourcommune_3(feature, layer) {
+        function pop_Contourcommune_2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     if (typeof layer.closePopup == 'function') {
@@ -168,9 +99,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Contourcommune_3_0() {
+        function style_Contourcommune_2_0() {
             return {
-                pane: 'pane_Contourcommune_3',
+                pane: 'pane_Contourcommune_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -183,20 +114,127 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_Contourcommune_3');
-        map.getPane('pane_Contourcommune_3').style.zIndex = 403;
-        map.getPane('pane_Contourcommune_3').style['mix-blend-mode'] = 'normal';
-        var layer_Contourcommune_3 = new L.geoJson(json_Contourcommune_3, {
+        map.createPane('pane_Contourcommune_2');
+        map.getPane('pane_Contourcommune_2').style.zIndex = 402;
+        map.getPane('pane_Contourcommune_2').style['mix-blend-mode'] = 'normal';
+        var layer_Contourcommune_2 = new L.geoJson(json_Contourcommune_2, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Contourcommune_3',
-            layerName: 'layer_Contourcommune_3',
-            pane: 'pane_Contourcommune_3',
-            onEachFeature: pop_Contourcommune_3,
-            style: style_Contourcommune_3_0,
+            dataVar: 'json_Contourcommune_2',
+            layerName: 'layer_Contourcommune_2',
+            pane: 'pane_Contourcommune_2',
+            onEachFeature: pop_Contourcommune_2,
+            style: style_Contourcommune_2_0,
         });
-        bounds_group.addLayer(layer_Contourcommune_3);
-        map.addLayer(layer_Contourcommune_3);
+        bounds_group.addLayer(layer_Contourcommune_2);
+        map.addLayer(layer_Contourcommune_2);
+        function pop_PriseFibre_3(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if (typeof layer.closePopup == 'function') {
+                        layer.closePopup();
+                    } else {
+                        layer.eachLayer(function(feature){
+                            feature.closePopup()
+                        });
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SITE - Numéro de dossier'] !== null ? autolinker.link(feature.properties['SITE - Numéro de dossier'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Adresse'] !== null ? autolinker.link(feature.properties['Adresse'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Commune'] !== null ? autolinker.link(feature.properties['Commune'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Commercialisation</th>\
+                        <td>' + (feature.properties['Commercialisation'] !== null ? autolinker.link(feature.properties['Commercialisation'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Logement</th>\
+                        <td>' + (feature.properties['Logement'] !== null ? autolinker.link(feature.properties['Logement'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_PriseFibre_3_0(feature) {
+            switch(String(feature.properties['q2wHide_Anciennete Prise'])) {
+                case 'Prise de la semaine':
+                    return {
+                pane: 'pane_PriseFibre_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(246,246,47,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Prise éligible':
+                    return {
+                pane: 'pane_PriseFibre_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,127,0,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_PriseFibre_3',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(255,255,255,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_PriseFibre_3');
+        map.getPane('pane_PriseFibre_3').style.zIndex = 403;
+        map.getPane('pane_PriseFibre_3').style['mix-blend-mode'] = 'normal';
+        var layer_PriseFibre_3 = new L.geoJson(json_PriseFibre_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PriseFibre_3',
+            layerName: 'layer_PriseFibre_3',
+            pane: 'pane_PriseFibre_3',
+            onEachFeature: pop_PriseFibre_3,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_PriseFibre_3_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_PriseFibre_3);
+        map.addLayer(layer_PriseFibre_3);
             var title = new L.Control();
             title.onAdd = function (map) {
                 this._div = L.DomUtil.create('div', 'info');
@@ -218,7 +256,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Contourcommune_3.png" /> Contour commune': layer_Contourcommune_3,'<img src="legend/LivraisonGuadeloupe_2.png" /> Livraison Guadeloupe': layer_LivraisonGuadeloupe_2,"Google Satellite": layer_GoogleSatellite_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'Prise Fibre<br /><table><tr><td style="text-align: center;"><img src="legend/PriseFibre_3_Prisedelasemaine0.png" /></td><td>Prise de la semaine</td></tr><tr><td style="text-align: center;"><img src="legend/PriseFibre_3_Priseéligible1.png" /></td><td>Prise éligible</td></tr><tr><td style="text-align: center;"><img src="legend/PriseFibre_3_2.png" /></td><td></td></tr></table>': layer_PriseFibre_3,'<img src="legend/Contourcommune_2.png" /> Contour commune': layer_Contourcommune_2,"Google Satellite": layer_GoogleSatellite_1,"Google Road": layer_GoogleRoad_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
